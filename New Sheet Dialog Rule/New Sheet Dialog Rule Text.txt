@@ -1,0 +1,12 @@
+AddReference "NewSheetCreationDialog.dll"
+doc = ThisDoc.Document
+
+ trigger = iTrigger0
+ Using dlg As New DrawingTemplateRuleLib.NewSheetCreationForm(ThisApplication, doc)
+  dlg.ShowMyDialog = ShowMyDialog
+  Dim i As Integer = dlg.ShowDialog()
+  If i <> vbOK Then Return
+  ShowMyDialog =  dlg.ShowMyDialog
+ End Using
+ iLogicVb.UpdateWhenDone = True
+
